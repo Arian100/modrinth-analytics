@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "modrinth-analytics"
+version = "0.1.0"
+description = "Snapshot-based analytics of the Minecraft modding ecosystem via the Modrinth API"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Arian100" }]
+dependencies = [
+    "httpx>=0.27",
+    "polars>=1.0",
+]
+
+[project.optional-dependencies]
+dashboard = [
+    "plotly>=6.0",
+    "streamlit>=1.37",
+]
+dev = [
+    "pytest>=8",
+    "respx>=0.22",
+    "ruff>=0.5",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/modrinth_analytics"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",        # pycodestyle errors
+    "W",        # pycodestyle warnings
+    "F",           # pyflakes
+    "I",              # isort
+    "UP",        # pyupgrade
+    "B",     # flake8-bugbear
+    "SIM",    # flake8-simplify
+    "RUF", # ruff-specific rules
+]
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

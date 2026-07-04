@@ -1,2 +1,1 @@
-# modrinth-analytics
-Modrinth analytics tool
+# Modrinth Ecosystem Analytics
