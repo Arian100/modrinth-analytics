@@ -55,7 +55,6 @@ CREATE TABLE IF NOT EXISTS game_versions (
 
 
 class Database:
-
     def __init__(self, conn: sqlite3.Connection) -> None:
         self.conn = conn
 

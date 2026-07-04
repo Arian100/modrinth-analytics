@@ -17,7 +17,6 @@ _MAX_BACKOFF_SECONDS = 30.0
 
 
 class ModrinthAPIError(Exception):
-
     def __init__(self, message: str, status_code: int | None = None) -> None:
         super().__init__(message)
         self.status_code = status_code
@@ -25,7 +24,6 @@ class ModrinthAPIError(Exception):
 
 @dataclass(frozen=True, slots=True)
 class SearchHit:
-
     project_id: str
     slug: str
     title: str
@@ -57,7 +55,6 @@ class SearchHit:
 
 @dataclass(frozen=True, slots=True)
 class SearchResponse:
-
     hits: list[SearchHit]
     offset: int
     limit: int
@@ -75,7 +72,6 @@ class SearchResponse:
 
 @dataclass(frozen=True, slots=True)
 class Project:
-
     id: str
     slug: str
     title: str
@@ -110,7 +106,6 @@ class Project:
 
 @dataclass(frozen=True, slots=True)
 class Version:
-
     id: str
     project_id: str
     name: str
@@ -138,7 +133,6 @@ class Version:
 
 @dataclass(frozen=True, slots=True)
 class GameVersion:
-
     version: str
     version_type: str
     date: datetime
@@ -155,7 +149,6 @@ class GameVersion:
 
 
 class ModrinthClient:
-
     def __init__(
         self,
         *,

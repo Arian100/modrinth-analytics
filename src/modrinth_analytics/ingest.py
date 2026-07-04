@@ -18,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class IngestStats:
-
     projects: int = 0
     snapshots: int = 0
     versions: int = 0
